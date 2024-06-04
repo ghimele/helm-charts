@@ -173,15 +173,6 @@ data:
             timeStyle: short
             hour12: false
 
-    # - glances:
-    #   url: http://oceano.home.arpa:61208
-    #   cpu: true # optional, enabled by default, disable by setting to false
-    #   mem: true # optional, enabled by default, disable by setting to false
-    #   cputemp: true # disabled by default
-    #   uptime: true # disabled by default
-    #   expanded: true # show the expanded view
-    #   version: 4 # required only if running glances v4 or higher, defaults to 3
-
     - kubernetes:
         cluster:
           show: true
@@ -206,7 +197,6 @@ data:
         longitude: 7.498543113470078
         units: metric # or imperial
         provider: openweathermap
-        #apiKey: cd027f7f7269b882ded9585d27f328dd # required only if not using provider, this reveals api key in requests
         cache: 5 # Time in minutes to cache API responses, to stay within limits
         format: # optional, Intl.NumberFormat options
           maximumFractionDigits: 1
