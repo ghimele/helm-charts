@@ -1,0 +1,214 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "homepage.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "homepage.labels" . | nindent 4 }}
+data:
+  bookmarks.yaml: ""
+  docker.yaml: ""
+  kubernetes.yaml: |
+    mode: cluster
+  services.yaml: |
+    - Home Automation:
+      - Home-Assistant:
+          href: {{.Values.HOMEPAGE_VAR_HOMEASSISTANT_URL}}
+          description: Home Assistant Core
+          icon: home-assistant.png
+          # container: Home-Assistant-Core
+      - ESPHome:
+          href: {{.Values.HOMEPAGE_VAR_ESPHOME_URL}}
+          description: microcontrollers system control  
+          icon: esphome.png
+          # container: ESPHome
+          widget:
+              type: esphome
+              url: {{.Values.HOMEPAGE_VAR_ESPHOME_URL}}
+              fields:
+                  - online
+                  - offline
+                  - unknown
+    - MAM Lab:
+      - pfSense:
+          href: {{.Values.HOMEPAGE_VAR_PFSENSE_URL}}
+          description: Firewall
+          icon: pfsense.png
+      - Vaultwarden:
+          href: {{.Values.HOMEPAGE_VAR_VAULTWARDEN_URL}}
+          description: Password management
+          icon: bitwarden.png
+          # container: vaultwarden
+      - Portainer:
+          href: {{.Values.HOMEPAGE_VAR_PORTAINER_URL}}
+          description: Portainer CE to manage docker
+          icon: portainer.png
+          # container: Portainer-CE
+          widget:
+              type: portainer
+              url: {{.Values.HOMEPAGE_VAR_PORTAINER_URL}}
+              key: {{.Values.HOMEPAGE_VAR_PORTAINER_KEY}}
+              env: 2
+      - Duplicati:
+          href: {{.Values.HOMEPAGE_VAR_DUPLICATI_URL}}
+          description: Backup Service
+          icon: duplicati.png
+          # container: duplicati
+      - Uptime Kuma:
+          href: {{.Values.HOMEPAGE_VAR_UPTIMEKUMA_URL}}
+          description: Services monitor
+          icon: uptime-kuma.png
+          # container: UptimeKuma
+          widget:
+              type: uptimekuma
+              url: {{.Values.HOMEPAGE_VAR_UPTIMEKUMA_URL}}
+              slug: {{.Values.HOMEPAGE_VAR_UPTIMEKUMA_SLUG}}
+      - Glances:
+          href: {{.Values.HOMEPAGE_VAR_GLANCES_URL}}
+          description: system stats Oceano
+          icon: glances.png
+          # container: glances
+          widget:
+              type: glances
+              url: {{.Values.HOMEPAGE_VAR_GLANCES_URL}}
+              version: 4
+              metric: info
+      - Dozzle:
+          href: {{.Values.HOMEPAGE_VAR_GLANCES_URL}}
+          description: docker log monitor
+          icon: dozzle.png
+          # container: Dozzle
+      - Omada Controller:
+          href: {{.Values.HOMEPAGE_VAR_OMADA_URL}}
+          description: controller for Omada devices
+          icon: omada.png
+          # container: omada-controller
+      - Gotify:
+          href: {{.Values.HOMEPAGE_VAR_GOTIFY_URL}}
+          description: Simple server for sending and receiving messages
+          icon: gotify.png
+          # container: gotify
+          widget:
+              type: gotify
+              url: {{.Values.HOMEPAGE_VAR_GOTIFY_URL}}
+              key: {{.Values.HOMEPAGE_VAR_GOTIFY_KEY}}
+      - Jellyfin:
+          href: {{.Values.HOMEPAGE_VAR_JELLYFIN_URL}}
+          description: Media System
+          icon: jellyfin.png
+          # container: bbergle-jellyfin
+          widget:
+              type: jellyfin
+              url: {{.Values.HOMEPAGE_VAR_JELLYFIN_URL}}
+              key: {{.Values.HOMEPAGE_VAR_JELLYFIN_KEY}}
+              enableBlocks: true # optional, defaults to false
+              enableNowPlaying: true # optional, defaults to true
+              fields:
+                  - movies
+                  - series
+                  - video
+    - VPS:
+      - Portainer:
+          href: {{.Values.HOMEPAGE_VAR_PORTAINER_VPS_URL}}
+          description: Portainer CE to manage docker
+          icon: portainer.png
+          widget:
+              type: portainer
+              url: {{.Values.HOMEPAGE_VAR_PORTAINER_URL}}
+              key: {{.Values.HOMEPAGE_VAR_PORTAINER_KEY}}
+              env: 3
+      - Adminer:
+          href: {{.Values.OMEPAGE_VAR_ADMINER_URL}}
+          description: DB Manager
+          icon: adminer.png
+
+    - Other:
+      - GitHub:
+          icon: github.svg
+          href: https://github.com/ghimele
+          description: source code
+  settings.yaml: |
+    title: Ghimele Homepage
+
+    providers:
+      openweathermap: {{.Values.HOMEPAGE_VAR_OPENWEATHERMAP_KEY}}
+
+    background:
+      image: https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+      blur: sm # sm, md, xl... see https://tailwindcss.com/docs/backdrop-blur
+      saturate: 100 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+      brightness: 50 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+      opacity: 100 # 0-100
+
+    theme: dark
+    color: slate
+
+    useEqualHeights: true
+
+    layout:
+      MAM Lab:
+        header: true
+        style: row
+        columns: 4
+      VPS:
+        header: true
+        style: row
+        columns: 4
+      Home Automation:
+        header: true
+        style: row
+        columns: 4
+      Other:
+        header: true
+        style: row
+        columns: 4
+  widgets.yaml: |
+    - logo:
+
+    - datetime:
+        locale: it
+        format:
+            dateStyle: long
+            timeStyle: short
+            hour12: false
+
+    # - glances:
+    #   url: http://oceano.home.arpa:61208
+    #   cpu: true # optional, enabled by default, disable by setting to false
+    #   mem: true # optional, enabled by default, disable by setting to false
+    #   cputemp: true # disabled by default
+    #   uptime: true # disabled by default
+    #   expanded: true # show the expanded view
+    #   version: 4 # required only if running glances v4 or higher, defaults to 3
+
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+    - resources:
+        backend: resources
+        expanded: true
+        cpu: true
+        memory: true
+
+    - openweathermap:
+        label: Cuneo #optional
+        latitude: 44.39739202341591
+        longitude: 7.498543113470078
+        units: metric # or imperial
+        provider: openweathermap
+        #apiKey: cd027f7f7269b882ded9585d27f328dd # required only if not using provider, this reveals api key in requests
+        cache: 5 # Time in minutes to cache API responses, to stay within limits
+        format: # optional, Intl.NumberFormat options
+          maximumFractionDigits: 1
+  custom.css: ""
+  custom.js: ""

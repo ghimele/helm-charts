@@ -1,0 +1,94 @@
+---
+nameOverride: ""
+fullnameOverride: ""
+namespace: default
+replicaCount: 1
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+
+image:
+  repository: ghcr.io/gethomepage/homepage
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  # tag: "0.9.0"
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingressRoute:
+  rules:
+    # Specifies the host used inside the ingressroute
+    - host: homepage.ghimele.com
+
+  # Specifies the secret used inside the ingressroute
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  tls: 
+    secretName: acme-issuer-account-key
+    #  - secretName: chart-example-tls
+    #    hosts:
+    #      - chart-example.local
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+  # -- Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # -- Annotations to add to the service account
+  annotations: {}
+  # -- The name of the service account to use.
+  # @default -- a name is generated using the fullname template
+  name: ""
+
+enableRbac: true
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts:
+  - mountPath: /app/config/custom.js
+    name: homepage-config
+    subPath: custom.js
+  - mountPath: /app/config/custom.css
+    name: homepage-config
+    subPath: custom.css
+  - mountPath: /app/config/bookmarks.yaml
+    name: homepage-config
+    subPath: bookmarks.yaml
+  - mountPath: /app/config/docker.yaml
+    name: homepage-config
+    subPath: docker.yaml
+  - mountPath: /app/config/kubernetes.yaml
+    name: homepage-config
+    subPath: kubernetes.yaml
+  - mountPath: /app/config/services.yaml
+    name: homepage-config
+    subPath: services.yaml
+  - mountPath: /app/config/settings.yaml
+    name: homepage-config
+    subPath: settings.yaml
+  - mountPath: /app/config/widgets.yaml
+    name: homepage-config
+    subPath: widgets.yaml
+  - mountPath: /app/config/logs
+    name: logs
+
+# Additional volumes on the output Deployment definition.
+volumes:
+  - name: homepage-config
+    configMap:
+      name: homepage
+  - name: logs
+    emptyDir: {}
+
+

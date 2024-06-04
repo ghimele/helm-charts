@@ -1,0 +1,12 @@
+Thank you for installing {{ include "homepage.chart" . }}, released at name: {{ .Release.Name }}.
+
+To learn more about the release, try:
+
+  $ helm status {{ .Release.Name }}  # information about running pods and this message
+  $ helm get all {{ .Release.Name }} # get full Kubernetes specification
+
+You can get the application by running these URLs:
+
+{{- range .Values.ingressRoute.rules }}
+  https://{{ .host }}
+{{- end }}
