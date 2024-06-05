@@ -35,12 +35,7 @@ jobs:
     strategy:
       matrix:
         k8s:
-          - v1.12.10
-          - v1.13.12
-          - v1.14.10
-          - v1.15.11
-          - v1.16.8
-          - v1.17.4
+          - v1.28.8
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -59,21 +54,16 @@ jobs:
     strategy:
       matrix:
         k8s:
-          - v1.12.10
-          - v1.13.12
-          - v1.14.10
-          - v1.15.7
-          - v1.16.4
-          - v1.17.2
+          - v1.28.9
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Create kind ${{ matrix.k8s }} cluster
-        uses: helm/kind-action@master
+        uses: helm/kind-action@main
         with:
           node_image: kindest/node:${{ matrix.k8s }}
       - name: Run chart-testing (install)
-        uses: helm/chart-testing-action@master
+        uses: helm/chart-testing-action@main
         with:
           command: install
           config: .github/ct.yaml
