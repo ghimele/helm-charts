@@ -1,0 +1,22 @@
+apiVersion: v1
+entries:
+  homepage:
+  - apiVersion: v2
+    appVersion: v0.9.1
+    created: "2024-06-05T09:10:55.489534232Z"
+    description: Chart for homepage. A modern (fully static, fast), secure (fully
+      proxied), highly customizable application dashboard. Easily configured via YAML
+      files (or discovery via docker labels).
+    digest: 8fbf09d59a391cb448df58239ad40b6bfbfb54826bbe2963a883e16160a94eca
+    icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
+    maintainers:
+    - name: ghimele
+    name: homepage
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/homepage
+    - https://github.com/gethomepage/homepage/
+    type: application
+    urls:
+    - https://github.com/ghimele/helm-charts/releases/download/homepage-2024.6.1/homepage-2024.6.1.tgz
+    version: 2024.6.1
+generated: "2024-06-05T09:10:55.48954393Z"
