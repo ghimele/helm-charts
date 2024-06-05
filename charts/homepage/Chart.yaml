@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-description: Chart for benphelps homepage
+description: Chart for homepage. A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard. Easily configured via YAML files (or discovery via docker labels).
 icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
 name: homepage
 version: 2024.6.1

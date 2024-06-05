@@ -1,8 +1,7 @@
-# Homepage
-
-A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard. Easily configured via YAML files (or discovery via docker labels).
-
+{{ template "chart.header" . }}
+{{ template "chart.description" . }}
 [Homepage](https://gethomepage.dev)
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
 
 ## Introduction
 
@@ -39,3 +38,13 @@ To uninstall/delete the `my-release` deployment:
 ```bash
 helm uninstall my-release
 ```
+
+## Custom configuration
+
+The chart uses some custom values needed by my current configuration:
+
+```
+{{ .Files.Get "secrets_fake.yaml" }}
+```
+
+{{ template "helm-docs.versionFooter" . }}
