@@ -1,4 +1,5 @@
 ---
+{{ if .Values.enableConfigMap }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -202,3 +203,4 @@ data:
           maximumFractionDigits: 1
   custom.css: ""
   custom.js: ""
+{{ end }}

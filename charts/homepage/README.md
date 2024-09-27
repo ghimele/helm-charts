@@ -2,7 +2,7 @@
 
 Chart for homepage. A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard. Easily configured via YAML files (or discovery via docker labels).
 
-![Version: 2024.6.1](https://img.shields.io/badge/Version-2024.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.1](https://img.shields.io/badge/AppVersion-v0.9.1-informational?style=flat-square)
+![Version: 2024.9.1](https://img.shields.io/badge/Version-2024.9.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.10](https://img.shields.io/badge/AppVersion-v0.9.10-informational?style=flat-square)
 
 ## Introduction
 
