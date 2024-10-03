@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Run chart-testing (lint)
         uses: helm/chart-testing-action@main
         with:
@@ -23,7 +23,7 @@ jobs:
     needs: lint-chart
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Run helm-docs
         run: .github/helm-docs.sh
   
@@ -38,7 +38,7 @@ jobs:
           - v1.28.8
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Run kubeval
         env:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
@@ -57,7 +57,7 @@ jobs:
           - v1.28.9
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Create kind ${{ matrix.k8s }} cluster
         uses: helm/kind-action@main
         with:
