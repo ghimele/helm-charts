@@ -3,8 +3,8 @@ apiVersion: v2
 description: Chart for homepage. A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard. Easily configured via YAML files (or discovery via docker labels).
 icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
 name: homepage
-version: 2024.9.2
-appVersion: v0.9.10
+version: 2024.10.1
+appVersion: v0.9.11
 type: application
 sources:
   - https://github.com/jameswynn/helm-charts/charts/homepage
