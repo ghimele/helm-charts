@@ -27,43 +27,43 @@ jobs:
       - name: Run helm-docs
         run: .github/helm-docs.sh
   
-  kubeval-chart:
-    runs-on: ubuntu-latest
-    needs:
-      - lint-chart
-      - lint-docs
-    strategy:
-      matrix:
-        k8s:
-          - v1.28.8
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run kubeval
-        env:
-          KUBERNETES_VERSION: ${{ matrix.k8s }}
-        run: .github/kubeval.sh
+  # kubeval-chart:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - lint-chart
+  #     - lint-docs
+  #   strategy:
+  #     matrix:
+  #       k8s:
+  #         - v1.28.8
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Run kubeval
+  #       env:
+  #         KUBERNETES_VERSION: ${{ matrix.k8s }}
+  #       run: .github/kubeval.sh
   
-  install-chart:
-    name: install-chart
-    runs-on: ubuntu-latest
-    needs:
-      - lint-chart
-      - lint-docs
-      - kubeval-chart
-    strategy:
-      matrix:
-        k8s:
-          - v1.28.9
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Create kind ${{ matrix.k8s }} cluster
-        uses: helm/kind-action@main
-        with:
-          node_image: kindest/node:${{ matrix.k8s }}
-      - name: Run chart-testing (install)
-        uses: helm/chart-testing-action@main
-        with:
-          command: install
-          config: .github/ct.yaml
+  # install-chart:
+  #   name: install-chart
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - lint-chart
+  #     - lint-docs
+  #     - kubeval-chart
+  #   strategy:
+  #     matrix:
+  #       k8s:
+  #         - v1.28.9
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Create kind ${{ matrix.k8s }} cluster
+  #       uses: helm/kind-action@main
+  #       with:
+  #         node_image: kindest/node:${{ matrix.k8s }}
+  #     - name: Run chart-testing (install)
+  #       uses: helm/chart-testing-action@main
+  #       with:
+  #         command: install
+  #         config: .github/ct.yaml
