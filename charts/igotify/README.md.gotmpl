@@ -1,0 +1,60 @@
+{{ template "chart.header" . }}
+{{ template "chart.description" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+## Introduction
+
+This chart bootstraps a [iGotify](https://github.com/androidseb25/iGotify-Notification-Assistent) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+
+## Prerequisites
+
+- Kubernetes 1.28+
+- Helm 3.14+
+
+## Installing the Chart
+
+To install the chart with the release name 'my-release':
+
+```bash
+helm install [RELEASE_NAME] iGotify
+```
+
+The command deploys iGotify on the Kubernetes cluster in the default configuration.
+See configuration below.
+See [helm install](https://helm.sh/docs/helm/helm_install/) for command documentation.
+> **Tip**: List all releases using `helm list`
+
+## Test the Chart
+
+After the installation is possible to test the chart using the following command
+
+```bash
+helm test iGotify
+```
+
+## Uninstalling the Chart
+
+To uninstall/delete the [RELEASE_NAME] deployment:
+
+```bash
+helm uninstall [RELEASE_NAME]
+```
+
+This removes all the Kubernetes components associated with the chart and deletes the release.
+See [helm uninstall](https://helm.sh/docs/helm/helm_uninstall/)for command documentation.
+
+## Upgrading Chart
+
+```bash
+helm upgrade [RELEASE_NAME] [CHART] --install
+```
+
+See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command documentation.
+
+## Values
+
+{{ template "chart.valuesTable" . }}
+
+
+{{ template "helm-docs.versionFooter" . }}
