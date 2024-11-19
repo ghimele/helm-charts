@@ -1,0 +1,81 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "igotify.fullname" . }}
+  labels:
+    {{- include "igotify.labels" . | nindent 4 }}
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "igotify.selectorLabels" . | nindent 6 }}
+      # app.kubernetes.io/name: igotify
+  template:
+    metadata:
+      labels:
+        #  app.kubernetes.io/name: igotify
+        {{- include "igotify.labels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "igotify.serviceAccountName" . }}
+      automountServiceAccountToken: {{ .Values.serviceAccount.automount }}
+      containers:
+        - name: {{ include "igotify.fullname" . }}
+          image: {{ .Values.image.repository}}:{{ .Values.image.tag | default .Chart.AppVersion }}
+          imagePullPolicy: {{ .Values.image.pullPolicy}}
+          env:
+            {{- if .Values.server.timezone }}
+            - name: TZ
+              value: {{ .Values.server.timezone | quote}}
+            {{- end }}
+            {{- if  .Values.server.gotifyUrls }}
+            - name: GOTIFY_URLS
+              value: {{ .Values.server.gotifyUrls | quote }}
+            {{- end }}
+            {{- if  .Values.server.gotifyClientTokens }}
+            - name: GOTIFY_CLIENT_TOKENS
+              value: {{ .Values.server.gotifyClientTokens | quote }}
+            {{- end }}
+            {{- if  .Values.server.gotifySecntfyTokens }}
+            - name: SECNTFY_TOKENS
+              value: {{ .Values.server.gotifySecntfyTokens | quote }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          volumeMounts:
+            - name: {{ include "igotify.fullname" . }}-data
+              mountPath: /app/data
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: {{ include "igotify.fullname" . }}-data
+        {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "igotify.fullname" . }}-data
+        {{- else }}
+          emptyDir: { }
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

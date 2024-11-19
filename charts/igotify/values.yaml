@@ -1,0 +1,56 @@
+---
+# -- @ignore
+nameOverride: ""
+# -- @ignore
+fullnameOverride: ""
+
+image:
+  # -- repository with igotify image
+  repository: ghcr.io/androidseb25/igotify-notification-assist
+  # -- pull policy
+  pullPolicy: Always
+  # -- current version of the image
+  tag: ""
+
+server:
+  # -- server timezone
+  timezone: Europe/Rome
+  # Please note you can configure multiple instances of local gotify server
+  # by adding a semicolon ; after each environment value
+  # -- the local gotify sever URL
+  gotifyUrls: ""
+  # -- the client token from the Gotify Client 
+  gotifyClientTokens: ""
+  # -- the SecNtfy Token that you get from the app after configure
+  gotifySecntfyTokens: ""
+
+serviceAccount:
+  # -- enable serviceAccount
+  create: true
+  # -- add annotations to serviceAccount
+  annotations: {}
+  # -- name of the serviceAccount (will be generated if empty)
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 8080
+
+persistence:
+  # -- enable persistence when true
+  enabled: true
+  # -- default storage size
+  size: 500Mi
+  # -- accessMode
+  accessMode: ReadWriteOnce
+  # -- actual storageClass
+  storageClass: ""
+
+# -- @ignore
+nodeSelector: {}
+
+# -- @ignore
+tolerations: []
+
+# -- @ignore
+affinity: {}
