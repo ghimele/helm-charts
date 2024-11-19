@@ -2,6 +2,24 @@ apiVersion: v1
 entries:
   homepage:
   - apiVersion: v2
+    appVersion: v0.9.11
+    created: "2024-11-19T22:52:44.360124211Z"
+    description: Chart for homepage. A modern (fully static, fast), secure (fully
+      proxied), highly customizable application dashboard. Easily configured via YAML
+      files (or discovery via docker labels).
+    digest: 2e1e8fdd156c89326803a40848c11b8eb4db42f19274f77b2e8d977195b1fc89
+    icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
+    maintainers:
+    - name: ghimele
+    name: homepage
+    sources:
+    - https://github.com/jameswynn/helm-charts/charts/homepage
+    - https://github.com/gethomepage/homepage/
+    type: application
+    urls:
+    - https://github.com/ghimele/helm-charts/releases/download/homepage-2024.10.2/homepage-2024.10.2.tgz
+    version: 2024.10.2
+  - apiVersion: v2
     appVersion: v0.9.10
     created: "2024-09-30T07:51:28.924969493Z"
     description: Chart for homepage. A modern (fully static, fast), secure (fully
@@ -55,4 +73,21 @@ entries:
     urls:
     - https://github.com/ghimele/helm-charts/releases/download/homepage-2024.6.1/homepage-2024.6.1.tgz
     version: 2024.6.1
-generated: "2024-09-30T07:51:28.924986996Z"
+  igotify:
+  - apiVersion: v2
+    appVersion: v1.3.0.0
+    created: "2024-11-19T22:52:44.505314452Z"
+    description: Chart to install iGotify an assistent that sends push notifications
+      to iOS devices for incoming gotify/server messages.
+    digest: b90c3136b048c04a036c765b0d3c4213f03e420d5a0a08ad3bb796bdb1c34d3e
+    icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/gotify.png
+    maintainers:
+    - name: ghimele
+    name: igotify
+    sources:
+    - https://github.com/androidseb25/iGotify-Notification-Assistent
+    type: application
+    urls:
+    - https://github.com/ghimele/helm-charts/releases/download/igotify-1.0.0/igotify-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-11-19T22:52:44.505354537Z"
