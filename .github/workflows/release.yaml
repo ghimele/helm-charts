@@ -35,3 +35,4 @@ jobs:
           charts_dir: charts
         env:
           CR_TOKEN: '${{ secrets.RELEASE_TOKEN }}'
+          CR_GENERATE_RELEASE_NOTES: true
