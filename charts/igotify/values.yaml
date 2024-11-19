@@ -13,13 +13,13 @@ image:
   tag: ""
 
 server:
-  # -- server timezone
-  timezone: Europe/Rome
+  # -- server timezone (eg. Europe/Rome)
+  timezone: ""
   # Please note you can configure multiple instances of local gotify server
   # by adding a semicolon ; after each environment value
   # -- the local gotify sever URL
   gotifyUrls: ""
-  # -- the client token from the Gotify Client 
+  # -- the client token from the Gotify Client
   gotifyClientTokens: ""
   # -- the SecNtfy Token that you get from the app after configure
   gotifySecntfyTokens: ""
@@ -34,11 +34,11 @@ serviceAccount:
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
 
 persistence:
   # -- enable persistence when true
-  enabled: true
+  enabled: false
   # -- default storage size
   size: 500Mi
   # -- accessMode

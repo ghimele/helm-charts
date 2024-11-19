@@ -2,7 +2,7 @@
 
 Chart to install iGotify an assistent that sends push notifications to iOS devices for incoming gotify/server messages.
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0.0](https://img.shields.io/badge/AppVersion-v0.9.11-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0.0](https://img.shields.io/badge/AppVersion-v1.3.0.0-informational?style=flat-square)
 
 ## Introduction
 
@@ -58,15 +58,16 @@ See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command document
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"Always"` | pull policy |
-| image.repository | string | `"ghcr.io/androidseb25/igotify-notification-assist"` | repository with gotify image |
+| image.repository | string | `"ghcr.io/androidseb25/igotify-notification-assist"` | repository with igotify image |
 | image.tag | string | `""` | current version of the image |
 | persistence.accessMode | string | `"ReadWriteOnce"` | accessMode |
 | persistence.enabled | bool | `false` | enable persistence when true |
-| persistence.size | string | `"20Gi"` | default storage size |
+| persistence.size | string | `"500Mi"` | default storage size |
 | persistence.storageClass | string | `""` | actual storageClass |
 | server.gotifyClientTokens | string | `""` | the client token from the Gotify Client |
 | server.gotifySecntfyTokens | string | `""` | the SecNtfy Token that you get from the app after configure |
 | server.gotifyUrls | string | `""` | the local gotify sever URL |
+| server.timezone | string | `""` | server timezone (eg. Europe/Rome) |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | add annotations to serviceAccount |
