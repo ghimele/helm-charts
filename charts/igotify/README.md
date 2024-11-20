@@ -2,7 +2,7 @@
 
 Chart to install iGotify an assistent that sends push notifications to iOS devices for incoming gotify/server messages.
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0.0](https://img.shields.io/badge/AppVersion-v1.3.0.0-informational?style=flat-square)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0.0](https://img.shields.io/badge/AppVersion-v1.3.0.0-informational?style=flat-square)
 
 ## Introduction
 
@@ -60,6 +60,7 @@ See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command document
 | image.pullPolicy | string | `"Always"` | pull policy |
 | image.repository | string | `"ghcr.io/androidseb25/igotify-notification-assist"` | repository with igotify image |
 | image.tag | string | `""` | current version of the image |
+| imagePullSecrets | list | `[]` | imagePullSecrets (not needed, if default image is used) |
 | persistence.accessMode | string | `"ReadWriteOnce"` | accessMode |
 | persistence.enabled | bool | `false` | enable persistence when true |
 | persistence.size | string | `"500Mi"` | default storage size |
