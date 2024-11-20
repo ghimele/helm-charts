@@ -4,6 +4,9 @@ nameOverride: ""
 # -- @ignore
 fullnameOverride: ""
 
+# -- imagePullSecrets (not needed, if default image is used)
+imagePullSecrets: []
+
 image:
   # -- repository with igotify image
   repository: ghcr.io/androidseb25/igotify-notification-assist
@@ -54,3 +57,14 @@ tolerations: []
 
 # -- @ignore
 affinity: {}
+
+# -- @ignore
+podSecurityContext: {}
+
+# -- @ignore
+securityContext:
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+
+# -- @ignore
+podAnnotations: {}
