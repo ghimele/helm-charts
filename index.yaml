@@ -75,6 +75,22 @@ entries:
     version: 2024.6.1
   igotify:
   - apiVersion: v2
+    appVersion: v1.4.0.0
+    created: "2025-01-30T15:06:41.224184823Z"
+    description: Chart to install iGotify an assistent that sends push notifications
+      to iOS devices for incoming gotify/server messages.
+    digest: 1d13047d0b9bd7b6587c97307d39fe3347904f0427c895e9675a1b75ed0b1aad
+    icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/gotify.png
+    maintainers:
+    - name: ghimele
+    name: igotify
+    sources:
+    - https://github.com/androidseb25/iGotify-Notification-Assistent
+    type: application
+    urls:
+    - https://github.com/ghimele/helm-charts/releases/download/igotify-1.0.4/igotify-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     appVersion: v1.3.0.0
     created: "2024-11-20T12:32:10.259373447Z"
     description: Chart to install iGotify an assistent that sends push notifications
@@ -138,4 +154,4 @@ entries:
     urls:
     - https://github.com/ghimele/helm-charts/releases/download/igotify-1.0.0/igotify-1.0.0.tgz
     version: 1.0.0
-generated: "2024-11-20T12:32:10.259400837Z"
+generated: "2025-01-30T15:06:41.224216041Z"
