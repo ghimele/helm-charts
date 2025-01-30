@@ -2,7 +2,7 @@
 
 Chart to install iGotify an assistent that sends push notifications to iOS devices for incoming gotify/server messages.
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.0.0](https://img.shields.io/badge/AppVersion-v1.3.0.0-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.4.0.0](https://img.shields.io/badge/AppVersion-v1.4.0.0-informational?style=flat-square)
 
 ## Introduction
 
@@ -69,7 +69,7 @@ See [helm upgrade](https://helm.sh/docs/helm/helm_upgrade/) for command document
 | server.gotifySecntfyTokens | string | `""` | the SecNtfy Token that you get from the app after configure |
 | server.gotifyUrls | string | `""` | the local gotify sever URL |
 | server.timezone | string | `""` | server timezone (eg. Europe/Rome) |
-| service.port | int | `80` |  |
+| service.port | int | `8080` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | add annotations to serviceAccount |
 | serviceAccount.create | bool | `true` | enable serviceAccount |

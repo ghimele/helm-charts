@@ -3,9 +3,9 @@ apiVersion: v2
 description: Chart to install iGotify an assistent that sends push notifications to iOS devices for incoming gotify/server messages.
 icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/gotify.png
 name: igotify
-version: 1.0.3
+version: 1.0.4
 # renovate: image=ghcr.io/androidseb25/igotify-notification-assist
-appVersion: v1.3.0.0
+appVersion: v1.4.0.0
 type: application
 sources:
   - https://github.com/androidseb25/iGotify-Notification-Assistent
