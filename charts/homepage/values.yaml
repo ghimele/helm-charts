@@ -22,6 +22,12 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: 'v0.9.13'
 
+env: 
+  # Specifies the allowed hosts for the homepage application.
+  # See gethomepage.dev/installation/#homepage_allowed_hosts
+  - name: "HOMEPAGE_ALLOWED_HOSTS"
+    value: "*"
+
 service:
   type: ClusterIP
   port: 3000
@@ -53,7 +59,7 @@ serviceAccount:
   # @default -- a name is generated using the fullname template
   name: ""
 
-enableRbac: true
+enableRbac: false
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:

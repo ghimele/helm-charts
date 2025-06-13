@@ -2,7 +2,7 @@
 
 Chart for homepage. A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard. Easily configured via YAML files (or discovery via docker labels).
 
-![Version: 2024.10.2](https://img.shields.io/badge/Version-2024.10.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.11](https://img.shields.io/badge/AppVersion-v0.9.11-informational?style=flat-square)
+![Version: 2025.06.1](https://img.shields.io/badge/Version-2025.06.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v1.3.2](https://img.shields.io/badge/AppVersion-v1.3.2-informational?style=flat-square)
 
 ## Introduction
 
@@ -27,44 +27,19 @@ The command deploys Homepage on the Kubernetes cluster in the default configurat
 > **Tip**: List all releases using `helm list`
 
 ## Test the Chart
+
 After the installation is possible to test the chart using the following command
 
 ```bash
 helm test homepage
 ```
+
 ## Uninstalling the Chart
 
 To uninstall/delete the `my-release` deployment:
 
 ```bash
 helm uninstall my-release
-```
-
-## Custom configuration
-
-The chart uses some custom values needed by my current configuration:
-
-```
-HOMEPAGE_VAR_HOMEASSISTANT_URL:
-HOMEPAGE_VAR_ESPHOME_URL:
-HOMEPAGE_VAR_PFSENSE_URL:
-HOMEPAGE_VAR_VAULTWARDEN_URL:
-HOMEPAGE_VAR_PORTAINER_URL:
-HOMEPAGE_VAR_PORTAINER_KEY:
-HOMEPAGE_VAR_DUPLICATI_URL:
-HOMEPAGE_VAR_UPTIMEKUMA_URL:
-HOMEPAGE_VAR_UPTIMEKUMA_SLUG:
-HOMEPAGE_VAR_GLANCES_URL:
-HOMEPAGE_VAR_DOZZLE_URL:
-HOMEPAGE_VAR_OMADA_URL:
-HOMEPAGE_VAR_GOTIFY_URL:
-HOMEPAGE_VAR_GOTIFY_KEY:
-HOMEPAGE_VAR_JELLYFIN_URL:
-HOMEPAGE_VAR_JELLYFIN_KEY:
-HOMEPAGE_VAR_PORTAINER_VPS_URL:
-HOMEPAGE_VAR_PORTAINER_VPS_KEY: ""
-HOMEPAGE_VAR_ADMINER_URL:
-HOMEPAGE_VAR_OPENWEATHERMAP_KEY:
 ```
 
 ----------------------------------------------

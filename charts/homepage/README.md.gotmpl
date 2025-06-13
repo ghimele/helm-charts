@@ -26,25 +26,19 @@ The command deploys Homepage on the Kubernetes cluster in the default configurat
 > **Tip**: List all releases using `helm list`
 
 ## Test the Chart
+
 After the installation is possible to test the chart using the following command
 
 ```bash
 helm test homepage
 ```
+
 ## Uninstalling the Chart
 
 To uninstall/delete the `my-release` deployment:
 
 ```bash
 helm uninstall my-release
-```
-
-## Custom configuration
-
-The chart uses some custom values needed by my current configuration:
-
-```
-{{ .Files.Get "secrets_fake.yaml" }}
 ```
 
 {{ template "helm-docs.versionFooter" . }}
